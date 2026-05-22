@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche Grand Oral – Communication & Événements</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf7f2;
+    --accent: #c0392b;
+    --rule: #c8b99a;
+    --soft: #f0ebe0;
+    --muted: #7a6e5f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--soft);
+    font-family: 'Source Serif 4', serif;
+    color: var(--ink);
+    padding: 24px 16px 48px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--rule);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+
+  .header-left { flex: 1; }
+  .classe {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: .04em;
+  }
+  .question-box {
+    margin-top: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    border-left: 4px solid var(--accent);
+  }
+  .question-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+  .question-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 160px;
+  }
+  .lycee {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .doc-title {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+
+  .section { margin-bottom: 22px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 4px 12px;
+    margin-bottom: 7px;
+    align-items: start;
+  }
+  .row-label {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    padding-top: 2px;
+    font-size: 12px;
+  }
+  .row-content {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+    font-size: 12.5px;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .intro-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .intro-item .label-sm {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .intro-item p {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+
+  .part-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6px 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .part-answer {
+    font-size: 11px;
+    opacity: .7;
+    font-style: italic;
+    margin-left: 8px;
+  }
+
+  .arg-block {
+    border-left: 3px solid var(--rule);
+    padding-left: 12px;
+    margin-bottom: 12px;
+  }
+  .arg-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .arg-text {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  .arg-phrase {
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .exemples {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .ex-pill {
+    background: var(--soft);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 2px 8px;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  .synth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .synth-item .s-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .synth-item p {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+
+  .mots-cles {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .mot {
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 11px;
+    padding: 3px 10px;
+    letter-spacing: .05em;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="classe">TST I2D 1</div>
+      <div class="question-box">
+        <div class="question-label">Question n°…</div>
+        <div class="question-text">Les nouvelles méthodes de communication peuvent-elles améliorer l'ambiance lors d'événements ?<br><em style="font-size:11px;opacity:.75;">(bien-être / expérience utilisateur)</em></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="lycee">Lycée Marie Curie</div>
+      <div class="doc-title">Fiche de préparation au Grand Oral</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <h2>Introduction</h2>
+
+    <div class="row">
+      <div class="row-label">Origine de la question (projet)</div>
+      <div class="row-content">Projet STI2D sur la conception d'un panneau pixel avec les lettres SIN, commandé avec une carte Arduino et la possibilité d'afficher la couleur d'un drapeau sur le panneau.</div>
+    </div>
+
+    <div class="row" style="margin-bottom:12px;">
+      <div class="row-label">Problématique reformulée (avec opposition)</div>
+      <div class="row-content">Les outils numériques de communication (applications, réseaux, interfaces interactives) sont-ils réellement capables de créer du lien et d'améliorer le bien-être collectif lors d'un événement, ou risquent-ils au contraire de fragmenter l'expérience humaine ?</div>
+    </div>
+
+    <div class="intro-grid">
+      <div class="intro-item">
+        <div class="label-sm">Définition 1</div>
+        <div class="num">1.</div>
+        <p><strong>Nouvelles méthodes de communication :</strong> ensemble des outils numériques et interactifs (applications mobiles, réseaux sociaux, bornes connectées, réalité augmentée) permettant d'échanger et de partager de l'information en temps réel.</p>
+      </div>
+      <div class="intro-item">
+        <div class="label-sm">Définition 2</div>
+        <div class="num">2.</div>
+        <p><strong>Ambiance / Expérience utilisateur :</strong> qualité perçue de l'environnement d'un événement, englobant le bien-être émotionnel, la cohésion sociale et la satisfaction globale des participants.</p>
+      </div>
+      <div class="intro-item">
+        <div class="label-sm">Définition 3</div>
+        <div class="num">3.</div>
+        <p><strong>Bien-être lors d'un événement :</strong> état de confort physique et émotionnel des participants, favorisé par une organisation fluide, une bonne information et des interactions positives.</p>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:12px;">
+      <div class="row-label">Annonce du plan</div>
+      <div class="row-content">Nous verrons d'abord que les nouvelles méthodes de communication enrichissent positivement l'expérience événementielle <em>(Partie 1 – "oui")</em>, puis nous nuancerons en montrant leurs limites et effets contre-productifs <em>(Partie 2 – "mais")</em>, avant de voir comment la fusion intelligente entre technologie et lien humain ouvre la voie à une troisième solution <em>(Partie 3 – "ainsi")</em>.</div>
+    </div>
+  </div>
+
+  <!-- PARTIE 1 -->
+  <div class="section">
+    <div class="part-header">Partie 1 — Les nouvelles méthodes de communication améliorent l'expérience et le bien-être lors des événements <span class="part-answer">("oui")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P1</div>
+      <div class="row-content">La communication numérique comme levier d'engagement et de confort pour les participants</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — Fluidification de l'information et réduction du stress organisationnel</div>
+      <div class="arg-text">Les applications événementielles (programmes, plans interactifs, notifications push) permettent aux participants de s'orienter facilement et de ne manquer aucune étape, réduisant l'anxiété liée à la logistique.</div>
+      <div class="arg-phrase">→ Bien informé, le participant profite pleinement de l'événement sans stress ni perte de temps.</div>
+      <div class="exemples">
+        <div class="ex-pill">Application officielle Disneyland Paris</div>
+        <div class="ex-pill">Guide numérique des Jeux Olympiques Paris 2024</div>
+        <div class="ex-pill">QR codes d'accès aux conférences TED</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — Création de lien social et sentiment d'appartenance via les réseaux</div>
+      <div class="arg-text">Les outils de partage en temps réel (live tweets, murs de messages, hashtags dédiés) créent une communauté éphémère autour de l'événement, renforçant le sentiment de vivre une expérience collective et unique.</div>
+      <div class="arg-phrase">→ Partager l'instant transforme un simple spectateur en acteur de l'événement.</div>
+      <div class="exemples">
+        <div class="ex-pill">Mur de photos partagées en direct sur les écrans du stade (PSG, Allianz Riviera)</div>
+        <div class="ex-pill">QR code à la mi-temps d'un match (jeu concours)</div>
+        <div class="ex-pill">Mur interactif avec les messages des visiteurs via un #</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 3 — Interactivité et personnalisation de l'expérience utilisateur</div>
+      <div class="arg-text">Les interfaces interactives (votes en direct, réalité augmentée) impliquent activement les participants, rendant l'événement plus immersif et adapté aux préférences individuelles, ce qui accroît la satisfaction.</div>
+      <div class="arg-phrase">→ Quand le public participe, il ne regarde plus — il vit l'événement.</div>
+      <div class="exemples">
+        <div class="ex-pill">Systèmes de vote lors d'émissions TV (Star Académie, The Voice, DALS…)</div>
+        <div class="ex-pill">Expériences de réalité augmentée lors de matchs</div>
+        <div class="ex-pill">Bracelets LED lors de concerts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTIE 2 -->
+  <div class="section">
+    <div class="part-header">Partie 2 — Ces outils comportent des limites qui peuvent nuire à l'ambiance et au bien-être <span class="part-answer">("mais")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P2</div>
+      <div class="row-content">Les risques de déshumanisation, de surcharge informationnelle et d'exclusion numérique</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — Surcharge numérique et distraction : le paradoxe de la présence</div>
+      <div class="arg-text">La multiplication des notifications, des écrans et des sollicitations numériques peut détourner l'attention des participants de l'expérience physique et relationnelle réelle, créant une présence fragmentée et réduisant la profondeur du vécu.</div>
+      <div class="arg-phrase">→ À vouloir tout capturer pour les réseaux, on finit par ne plus rien vivre vraiment.</div>
+      <div class="exemples">
+        <div class="ex-pill">Concerts filmés plutôt que vécus</div>
+        <div class="ex-pill">??</div>
+        <div class="ex-pill">Dépendance aux interactions numériques (notifications et autres)</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — Fracture numérique et exclusion d'une partie du public</div>
+      <div class="arg-text">L'hyper-numérisation des événements peut marginaliser les personnes peu à l'aise avec les outils technologiques (seniors, personnes en situation de précarité numérique), creusant des inégalités dans la qualité de l'expérience vécue.</div>
+      <div class="arg-phrase">→ Une technologie qui exclut une partie du public ne peut pas vraiment améliorer l'ambiance pour tous.</div>
+      <div class="exemples">
+        <div class="ex-pill">Billetterie 100% en ligne (problèmes d'accès)</div>
+        <div class="ex-pill">Commande de nourriture exclusivement par voie numérique</div>
+        <div class="ex-pill">Personnes âgées exclues des billetteries dématérialisées</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 3 — Risques pour la vie privée et sentiment d'insécurité</div>
+      <div class="arg-text">La collecte massive de données (géolocalisation, reconnaissance faciale, traçage comportemental) lors d'événements connectés peut générer un sentiment de surveillance incompatible avec le bien-être et la liberté des participants.</div>
+      <div class="arg-phrase">→ Quand la technologie surveille au lieu de servir, elle crée de la méfiance plutôt que du bien-être.</div>
+      <div class="exemples">
+        <div class="ex-pill">Reconnaissance faciale aux entrées de stades (Roland Garros, expérimentation 2023)</div>
+        <div class="ex-pill">Revente de données à des partenaires tiers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTIE 3 -->
+  <div class="section">
+    <div class="part-header">Partie 3 — La vraie solution : fusionner intelligemment technologie et lien humain <span class="part-answer">("ainsi")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P3</div>
+      <div class="row-content">La convergence technologie + expérience humaine : vers des espaces événementiels immersifs nouvelle génération</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — Les écrans immersifs recréent l'émotion collective du stade</div>
+      <div class="arg-text">Les sports bars équipés d'écrans incurvés géants, de son spatial et d'ambiance LED permettent de ressentir l'intensité d'un match en direct sans y être physiquement, tout en partageant l'émotion avec d'autres spectateurs présents.</div>
+      <div class="arg-phrase">→ L'émotion du stade devient ainsi accessible à tous, sans quitter son quartier.</div>
+      <div class="exemples">
+        <div class="ex-pill">Sports bars USA (écrans incurvés 270°, son spatial)</div>
+        <div class="ex-pill">Sphere de Miami — écran interactif durant le Grand Prix</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — Le service humain reste le cœur de l'expérience</div>
+      <div class="arg-text">Malgré l'immersion technologique, c'est la présence des serveurs, la nourriture partagée et le contact physique entre participants qui ancrent l'émotion dans le réel et empêchent la déshumanisation observée en Partie 2.</div>
+      <div class="arg-phrase">→ La technologie crée le cadre, mais c'est l'humain qui donne vie à l'expérience.</div>
+      <div class="exemples">
+        <div class="ex-pill">Serveurs et service à table dans les sports bars immersifs</div>
+        <div class="ex-pill">Le contact physique ancre l'émotion dans le réel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYNTHÈSE -->
+  <div class="section">
+    <h2>Synthèse</h2>
+    <div class="synth-grid">
+      <div class="synth-item">
+        <div class="s-label">Réponse nuancée à la question</div>
+        <p>Oui, les nouvelles méthodes de communication peuvent améliorer l'ambiance et le bien-être lors d'événements, à condition qu'elles soient conçues pour <em>servir</em> l'expérience humaine et non la remplacer : elles doivent rester un outil inclusif, discret et centré sur le participant, plutôt qu'une fin en soi.</p>
+      </div>
+      <div class="synth-item">
+        <div class="s-label">Ouverture / perspective</div>
+        <p>L'enjeu futur sera de concevoir des systèmes de communication "hybrides" qui combinent interaction numérique et authenticité du lien humain.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px;">
+      <div class="s-label" style="font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Mots-clés</div>
+      <div class="mots-cles">
+        <div class="mot">Expérience utilisateur (UX)</div>
+        <div class="mot">Communication numérique</div>
+        <div class="mot">Bien-être collectif</div>
+        <div class="mot">Fracture numérique</div>
+        <div class="mot">Interactivité</div>
+        <div class="mot">Engagement</div>
+        <div class="mot">RGPD</div>
+        <div class="mot">Immersion</div>
+        <div class="mot">Lien social</div>
+        <div class="mot">STI2D – Systèmes connectés</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

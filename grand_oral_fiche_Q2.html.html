@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche Grand Oral – Question 2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf7f2;
+    --accent: #c0392b;
+    --rule: #c8b99a;
+    --soft: #f0ebe0;
+    --muted: #7a6e5f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--soft);
+    font-family: 'Source Serif 4', serif;
+    color: var(--ink);
+    padding: 24px 16px 48px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--rule);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+
+  .header-left { flex: 1; }
+  .classe {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: .04em;
+  }
+  .question-box {
+    margin-top: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    border-left: 4px solid var(--accent);
+  }
+  .question-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+  .question-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 160px;
+  }
+  .lycee {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .doc-title {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+
+  .section { margin-bottom: 22px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 4px 12px;
+    margin-bottom: 7px;
+    align-items: start;
+  }
+  .row-label {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    padding-top: 2px;
+    font-size: 12px;
+  }
+  .row-content {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+    font-size: 12.5px;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .intro-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .intro-item .label-sm {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .intro-item p {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+
+  .part-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6px 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .part-answer {
+    font-size: 11px;
+    opacity: .7;
+    font-style: italic;
+    margin-left: 8px;
+  }
+
+  .arg-block {
+    border-left: 3px solid var(--rule);
+    padding-left: 12px;
+    margin-bottom: 12px;
+  }
+  .arg-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .arg-text {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  .arg-phrase {
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .exemples {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .ex-pill {
+    background: var(--soft);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 2px 8px;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  .synth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .synth-item .s-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .synth-item p {
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+
+  .mots-cles {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .mot {
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 11px;
+    padding: 3px 10px;
+    letter-spacing: .05em;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="classe">TST I2D 1</div>
+      <div class="question-box">
+        <div class="question-label">Question n°…</div>
+        <div class="question-text">La communication à l'aide des nouvelles technologies peut-elle faciliter le rapprochement et l'inclusion de différentes communautés ?</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="lycee">Lycée Marie Curie</div>
+      <div class="doc-title">Fiche de préparation au Grand Oral</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <h2>Introduction</h2>
+
+    <div class="row">
+      <div class="row-label">Origine de la question (projet)</div>
+      <div class="row-content">Projet STI2D sur la conception d'un panneau pixel avec les lettres SIN, commandé par une carte Arduino, capable d'afficher la couleur d'un drapeau — un outil visuel capable de représenter et de rassembler différentes communautés autour d'un symbole commun.</div>
+    </div>
+
+    <div class="row" style="margin-bottom:12px;">
+      <div class="row-label">Problématique reformulée (avec opposition)</div>
+      <div class="row-content">Les nouvelles technologies de communication sont-elles réellement capables de créer des ponts entre des communautés différentes et de favoriser leur inclusion, ou risquent-elles au contraire de renforcer les divisions, les bulles et les inégalités d'accès ?</div>
+    </div>
+
+    <div class="intro-grid">
+      <div class="intro-item">
+        <div class="label-sm">Définition 1</div>
+        <div class="num">1.</div>
+        <p><strong>Nouvelles technologies de communication :</strong> ensemble des outils numériques permettant d'échanger à distance en temps réel — réseaux sociaux, applications de messagerie, plateformes collaboratives, outils de traduction automatique, réalité virtuelle.</p>
+      </div>
+      <div class="intro-item">
+        <div class="label-sm">Définition 2</div>
+        <div class="num">2.</div>
+        <p><strong>Communauté :</strong> groupe d'individus partageant une culture, une langue, une religion, un intérêt ou une identité commune. Peut être locale, nationale ou mondiale.</p>
+      </div>
+      <div class="intro-item">
+        <div class="label-sm">Définition 3</div>
+        <div class="num">3.</div>
+        <p><strong>Inclusion :</strong> processus par lequel des individus ou groupes marginalisés sont intégrés et reconnus au sein d'un ensemble plus large, avec un accès égal aux ressources, à la parole et aux opportunités.</p>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:12px;">
+      <div class="row-label">Annonce du plan</div>
+      <div class="row-content">Nous verrons d'abord que oui, les nouvelles technologies facilitent le rapprochement et l'inclusion <em>(Partie 1 – "oui")</em>, puis nous montrerons qu'elles peuvent aussi creuser les divisions <em>(Partie 2 – "mais")</em>, avant de voir comment une conception responsable permet de dépasser cette contradiction <em>(Partie 3 – "ainsi")</em>.</div>
+    </div>
+  </div>
+
+  <!-- PARTIE 1 -->
+  <div class="section">
+    <div class="part-header">Partie 1 — Les nouvelles technologies facilitent le rapprochement et l'inclusion des communautés <span class="part-answer">("oui")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P1</div>
+      <div class="row-content">La technologie comme pont entre les cultures, les langues et les individus isolés</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — La traduction automatique abolit les barrières linguistiques</div>
+      <div class="arg-text">Les outils de traduction en temps réel (Google Translate, DeepL, sous-titrage automatique) permettent à des personnes de langues différentes de communiquer sans intermédiaire, ouvrant des espaces de dialogue entre communautés qui ne pouvaient pas se parler auparavant.</div>
+      <div class="arg-phrase">→ Pour la première fois dans l'histoire, la langue n'est plus un mur — elle devient une passerelle.</div>
+      <div class="exemples">
+        <div class="ex-pill">Sous-titrage automatique YouTube en 100+ langues</div>
+        <div class="ex-pill">Google Translate utilisé par 500 millions de personnes/jour</div>
+        <div class="ex-pill">Traduction en temps réel lors de réunions Teams / Zoom</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — Les réseaux sociaux donnent une voix aux communautés marginalisées</div>
+      <div class="arg-text">Des communautés autrefois invisibles dans les médias traditionnels — minorités ethniques, personnes handicapées, communautés rurales — trouvent sur les réseaux sociaux un espace pour exister, s'exprimer et être entendues à grande échelle.</div>
+      <div class="arg-phrase">→ Internet a permis à des voix longtemps ignorées d'atteindre des millions de personnes en quelques clics.</div>
+      <div class="exemples">
+        <div class="ex-pill">Mouvement #BlackLivesMatter né sur Twitter</div>
+        <div class="ex-pill">Communautés sourdes sur TikTok (langue des signes)</div>
+        <div class="ex-pill">Groupes Facebook de soutien aux aidants familiaux</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 3 — Les plateformes collaboratives créent des liens interculturels concrets</div>
+      <div class="arg-text">Des outils comme Zoom, Discord ou les jeux vidéo en ligne permettent à des personnes de cultures très différentes de travailler, jouer et créer ensemble, développant une compréhension mutuelle par l'expérience partagée plutôt que par le discours.</div>
+      <div class="arg-phrase">→ On ne comprend vraiment une culture qu'en vivant quelque chose avec elle — et la technologie le rend possible à distance.</div>
+      <div class="exemples">
+        <div class="ex-pill">Jeux en ligne multijoueurs internationaux (Fortnite, FIFA)</div>
+        <div class="ex-pill">Projets collaboratifs open source (GitHub)</div>
+        <div class="ex-pill">Échanges scolaires virtuels entre pays (eTwinning)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTIE 2 -->
+  <div class="section">
+    <div class="part-header">Partie 2 — Mais ces technologies peuvent aussi renforcer les divisions <span class="part-answer">("mais")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P2</div>
+      <div class="row-content">Les risques de bulles communautaires, de fracture numérique et de diffusion de la haine</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — Les algorithmes enferment dans des bulles identitaires</div>
+      <div class="arg-text">Les algorithmes de recommandation des réseaux sociaux poussent chaque utilisateur vers des contenus qui confirment ses croyances et ses appartenances, réduisant l'exposition à d'autres points de vue et renforçant les divisions entre communautés au lieu de les rapprocher.</div>
+      <div class="arg-phrase">→ Au lieu de nous ouvrir au monde, les réseaux peuvent nous enfermer dans un miroir de nous-mêmes.</div>
+      <div class="exemples">
+        <div class="ex-pill">Bulles de filtre sur Facebook (étude MIT 2018)</div>
+        <div class="ex-pill">Radicalisation progressive sur YouTube</div>
+        <div class="ex-pill">Polarisation politique sur Twitter/X</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — La fracture numérique exclut les communautés les plus vulnérables</div>
+      <div class="arg-text">L'accès aux nouvelles technologies n'est pas universel. Les communautés rurales, les pays en développement, les personnes âgées ou pauvres n'ont pas le même accès à internet et aux outils numériques, ce qui creuse des inégalités plutôt que de les réduire.</div>
+      <div class="arg-phrase">→ Une technologie censée inclure tout le monde peut paradoxalement exclure ceux qui en auraient le plus besoin.</div>
+      <div class="exemples">
+        <div class="ex-pill">37% de la population mondiale sans accès internet (ONU 2023)</div>
+        <div class="ex-pill">Zones blanches en France rurale</div>
+        <div class="ex-pill">Cours en ligne inaccessibles sans équipement adapté</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 3 — Les technologies amplifient aussi la haine et le rejet de l'autre</div>
+      <div class="arg-text">L'anonymat et la viralité des réseaux sociaux facilitent la diffusion de discours haineux, de stéréotypes et de désinformation ciblant des communautés spécifiques, aggravant les tensions intercommunautaires plutôt que de les apaiser.</div>
+      <div class="arg-phrase">→ Les mêmes outils qui peuvent rapprocher peuvent aussi devenir des armes de division massive.</div>
+      <div class="exemples">
+        <div class="ex-pill">Discours haineux contre des minorités sur X, TikTok</div>
+        <div class="ex-pill">Désinformation ciblant des communautés religieuses</div>
+        <div class="ex-pill">Cyberharcèlement de communautés LGBTQ+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTIE 3 -->
+  <div class="section">
+    <div class="part-header">Partie 3 — La vraie solution : concevoir des technologies au service du rapprochement <span class="part-answer">("ainsi")</span></div>
+
+    <div class="row">
+      <div class="row-label">Titre P3</div>
+      <div class="row-content">Vers une technologie responsable, inclusive et intentionnellement conçue pour créer du lien</div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 1 — Des outils spécifiquement conçus pour l'inclusion existent et fonctionnent</div>
+      <div class="arg-text">Certaines technologies sont conçues dès le départ avec l'inclusion comme objectif : applications d'accessibilité pour personnes handicapées, plateformes de dialogue interculturel, outils de médiation numérique. Ces projets montrent qu'une technologie pensée pour rapprocher peut y parvenir.</div>
+      <div class="arg-phrase">→ La technologie n'est pas neutre — quand on la conçoit pour inclure, elle inclut vraiment.</div>
+      <div class="exemples">
+        <div class="ex-pill">Be My Eyes (app guidant les malvoyants via bénévoles)</div>
+        <div class="ex-pill">Panneau pixel Arduino affichant les drapeaux de toutes les nations</div>
+        <div class="ex-pill">Plateformes de dialogue interreligieux en ligne</div>
+      </div>
+    </div>
+
+    <div class="arg-block">
+      <div class="arg-title">Argument 2 — La responsabilité des concepteurs est centrale</div>
+      <div class="arg-text">C'est au moment de la conception — choix des algorithmes, des interfaces, des politiques de modération — que se décide si une technologie va inclure ou exclure. Les ingénieurs et concepteurs de systèmes ont donc une responsabilité éthique directe sur l'impact social de leurs créations.</div>
+      <div class="arg-phrase">→ Un système bien conçu peut changer la vie d'une communauté entière — c'est toute la responsabilité de l'ingénieur STI2D.</div>
+      <div class="exemples">
+        <div class="ex-pill">Modération active contre les discours haineux (ex. Twitch)</div>
+        <div class="ex-pill">Conception universelle (design for all) dans les interfaces</div>
+        <div class="ex-pill">Notre panneau Arduino : choix de représenter tous les drapeaux</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYNTHÈSE -->
+  <div class="section">
+    <h2>Synthèse</h2>
+    <div class="synth-grid">
+      <div class="synth-item">
+        <div class="s-label">Réponse nuancée à la question</div>
+        <p>Oui, les nouvelles technologies peuvent faciliter le rapprochement et l'inclusion des communautés — mais ce n'est pas automatique. Cela dépend entièrement de la façon dont elles sont conçues, déployées et régulées. Une technologie pensée pour inclure peut transformer des divisions en ponts ; une technologie mal conçue peut au contraire amplifier les fractures existantes.</p>
+      </div>
+      <div class="synth-item">
+        <div class="s-label">Ouverture / perspective</div>
+        <p>L'enjeu des prochaines années sera de former des ingénieurs et concepteurs capables de mettre l'inclusion au cœur de leurs projets dès la phase de conception — ce que notre formation STI2D nous prépare à faire, à travers des projets comme notre panneau pixel Arduino.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px;">
+      <div class="s-label" style="font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Mots-clés</div>
+      <div class="mots-cles">
+        <div class="mot">Inclusion numérique</div>
+        <div class="mot">Fracture numérique</div>
+        <div class="mot">Bulle de filtre</div>
+        <div class="mot">Traduction automatique</div>
+        <div class="mot">Accessibilité</div>
+        <div class="mot">Algorithme</div>
+        <div class="mot">Communauté</div>
+        <div class="mot">Design for all</div>
+        <div class="mot">Lien interculturel</div>
+        <div class="mot">STI2D – Conception responsable</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
